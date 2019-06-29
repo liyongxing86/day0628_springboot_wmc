@@ -1,0 +1,16 @@
+server:
+  port: 10007
+spring:
+  application:
+    name: server-zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9090/eurka
+zuul:
+  routes:
+    path: /api-a/*
+    serviceId: server-feignhystrix
+  host:
+    connect-timeout-millis: 60000
+    socket-timeout-millis: 60000
